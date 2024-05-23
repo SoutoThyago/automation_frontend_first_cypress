@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   
+        uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
           node-version: 20.13.1
 
@@ -23,7 +23,9 @@ jobs:
         run: npm install
         working-directory: ./general_project
 
-      - name: Run Cypress Tests - general_project
+      - name: Lock permissions
+        run: chmod +x node_modules/.bin/cypress
+
+      - name: Run Cypress tests 
         run: npm run cypress:headless
         working-directory: ./general_project
-
