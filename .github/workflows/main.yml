@@ -37,4 +37,11 @@ jobs:
         working-directory: ./general_project
 
       - name: Artifacts                  
-        uses: cypress-io/github-action@v6    
+        uses: cypress-io/github-action@v6
+
+      - name: Artifacts 2
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: general_project/cypress/screenshots
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`       
