@@ -1,4 +1,4 @@
-name: Cypress Tests - general_project
+name: Cypress Tests - general_project 2
 
 on:
   push:
