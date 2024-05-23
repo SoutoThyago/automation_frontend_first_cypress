@@ -35,3 +35,9 @@ jobs:
       - name: Run Cypress tests 
         run: npm run cypress:headless
         working-directory: ./general_project
+
+      - name: Export Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: ./general_project/cypress/screenshots
