@@ -36,8 +36,9 @@ jobs:
         run: npm run cypress:headless
         working-directory: ./general_project
 
-      - name: Export Artifacts
+      - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots
-          path: ./general_project/cypress/screenshots
+          name: my-artifact
+          path: /general_project/cypress/screenshots
+          retention-days: 5          
