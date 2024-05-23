@@ -12,8 +12,9 @@ jobs:
 
     steps:
       - name: Alter permissions
-        run: actions/cache@v4
-        run: cypress-io/github-action@v4
+        run: 
+          - actions/cache@v4
+          - cypress-io/github-action@v4
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,4 +31,4 @@ jobs:
       - name: Run Cypress Tests - general_project
         run: npm run cypress:headless
         working-directory: ./general_project
-        
+
