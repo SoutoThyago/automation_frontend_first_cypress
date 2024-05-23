@@ -20,10 +20,10 @@ jobs:
           node-version: 20.13.1
 
       - name: Remove node_modules
-        run: rm -rf node_modules
+        run: rm -rf general_project/node_modules
 
       - name: Remove package_lock
-        run: rm package-lock.json          
+        run: rm general_project/package-lock.json          
 
       - name: Install dependencies
         run: npm install        
