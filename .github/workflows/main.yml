@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Alter permissions
         run: actions/cache@v4
 
       - name: Add permisions
-        run: cypress-io/github-action@v4
-
-      - name: Checkout code
-        uses: actions/checkout@v4
+        run: cypress-io/github-action@v4        
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
