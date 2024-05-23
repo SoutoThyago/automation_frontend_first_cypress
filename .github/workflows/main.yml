@@ -33,11 +33,12 @@ jobs:
         run: chmod +x general_project/node_modules/.bin/cypress
 
       - name: Run Cypress tests 
-        run: npm run cypress:headless        
+        run: npm run cypress:headless
+        working-directory: ./general_project
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: /general_project/cypress/screenshots
-          retention-days: 5          
+          path: general_project/cypress/screenshots
+          retention-days: 5
