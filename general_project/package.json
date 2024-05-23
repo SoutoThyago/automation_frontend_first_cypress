@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "engines": {
-    "node": "v20.13.1"
+    "node": "20.13.1"
   },
   "scripts": {
     "cypress:web": "npx cypress open",
