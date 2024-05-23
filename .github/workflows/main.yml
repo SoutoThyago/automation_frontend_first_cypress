@@ -23,9 +23,6 @@ jobs:
         run: npm install
         working-directory: ./general_project
 
-      - name: Lock permissions
-        run: chmod +x node_modules/.bin/cypress
-
       - name: Run Cypress tests 
         run: npm run cypress:headless
         working-directory: ./general_project
