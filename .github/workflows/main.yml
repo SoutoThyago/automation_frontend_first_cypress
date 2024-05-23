@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 
 jobs:
   general_project-tests:
@@ -30,3 +30,4 @@ jobs:
       - name: Run Cypress Tests - general_project
         run: npm run cypress:headless
         working-directory: ./general_project
+        
