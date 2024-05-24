@@ -7,7 +7,7 @@ export default class SearchPage extends VisitBase{
   elements = {
     fieldSearch:  () => cy.get('#APjFqb'),
     buttonSearch: () => cy.xpath('(//input[@class="gNO89b"])[1]'),
-    fieldTitle:   () => cy.xpath('(//div[@class="PZPZlf ssJ7i B5dxMb"])[1]')
+    fieldTitle:   () => cy.xpath('(//div[@class="PZPZlf ssJ7i B5dxMb" and contains(text(), "Dinossauro")])[1]')
   }
 
   input = {
