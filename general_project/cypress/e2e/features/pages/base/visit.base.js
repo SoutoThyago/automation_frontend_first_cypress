@@ -4,20 +4,22 @@ require('cypress-real-events');
 export default class VisitBase {
     clickElement(element) {
         element().click()
-        cy.screenshot('click ' + element)
+
+        if (Cypress.env('saveScreenshot')) { cy.screenshot('click in: ' + element) }
     }
 
     sendKey(element, text) {
         element().type(text)
-        cy.screenshot('send ' + element)
+        if (Cypress.env('saveScreenshot')) { cy.screenshot('send key: ' + element) }
     }
 
     mouseOver(element) {        
         cy.contains("a", element).realHover('mouse')
-        cy.screenshot('houver ' + element)
+        if (Cypress.env('saveScreenshot')) { cy.screenshot('mouse houver: ' + element) }
     }
 
-    visible(element) {        
-        return element().should('to.be.visible').screenshot('visible ' + element)
+    visible(element) { 
+        if (Cypress.env('saveScreenshot')) { cy.screenshot('visible element: ' + element) }
+        return element().should('to.be.visible')
     }
 }
