@@ -20,6 +20,6 @@ export default class VisitBase {
 
     visible(element) { 
         if (Cypress.env('saveScreenshot')) { cy.screenshot('visible element: ' + element) }
-        return element().should('to.be.visible')
+        element().should('be.visible')
     }
 }

@@ -22,7 +22,7 @@ describe('Valid Return', () => {
     })
 
     it('Then the results will be displayed', () => {      
-      searchPage.visibleElement()
+      searchPage.visibleElement(searchPage.elements.fieldTitle)
     })
 
   })
