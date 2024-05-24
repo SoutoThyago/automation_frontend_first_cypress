@@ -1,47 +1,26 @@
 name: Cypress Tests - general_project
-
 on:
   push:
     branches:
       - main
-
-
-jobs:
-  general_project-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.13.1
-
-      - name: Remove node_modules
-        run: rm -rf general_project/node_modules
-
-      - name: Remove package_lock
-        run: rm general_project/package-lock.json          
-
-      - name: Install dependencies
-        run: npm install        
-        working-directory: ./general_project
-
-      - name: Permissions
-        run: chmod +x general_project/node_modules/.bin/cypress
-
-      - name: Run Cypress tests 
-        run: npm run cypress:headless
-        working-directory: ./general_project
-
-      - name: Artifacts                  
-        uses: cypress-io/github-action@v6
-
-      - name: Artifacts 2
-        uses: actions/upload-artifact@v4
+  jobs:
+    cypress-run:
+      runs-on: ubuntu-22.04
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Cypress run
+          uses: cypress-io/github-action@v5
+        - uses: actions/upload-artifact@v3
+        # add the line below to store screenshots only on failures
+        if: failure()
         with:
           name: cypress-screenshots
-          path: general_project/cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`       
+          path: cypress/screenshots
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
